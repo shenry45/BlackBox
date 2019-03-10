@@ -26,11 +26,15 @@ async function fetchTix(e, genre){
 };
 
 function searchOrGenre(e, genre){
+    console.log(e);
+
     if (e === 'evnt') {
         return search.value.toLowerCase();
     } else {
-        return genre.toLowerCase();
-    }
+        console.log(genre);
+        return genre;
+        // return genre.toLowerCase();
+    } 
 }
 
 // display event details
@@ -104,11 +108,12 @@ function showEvents(){
 
     function randImgRotation() {
         const rotate = Math.ceil(Math.random() * 5);
+        
         if (rotate % 2) {
             return rotate;
         } else {
             return '-' + rotate;
-        }
+        } 
     }
 
     function filterLocation() {
@@ -125,8 +130,8 @@ function showEvents(){
         const img = document.querySelector('header').backgroundImage;
         const imageInd = index.images[0].url;
 ;
-        if (imageInd){
-            return imageInd;
+        if (imageInd) {
+            return imageInd
         } else {
             return img;
         }
@@ -163,11 +168,7 @@ function showEvents(){
     }
 
     function checkSale() {
-        if (index.dates.status.code === 'onsale') {
-            return 'ON SAL<u>E</u>';
-        } else {
-            return '';
-        }
+        (index.dates.status.code === 'onsale') ? 'ON SAL<u>E</u>' : '';
     }
 }
 
@@ -187,6 +188,7 @@ search.addEventListener('keydown', (e) => {
 document.querySelectorAll('.genList').forEach(el => {
     el.addEventListener('click', (ev) => {
         //console.log(ev.target.innerText);
-        fetchTix('genre', ev.target.innerText);
+        console.log(ev);
+        fetchTix('genre', ev.target.dataset.genre);
     });
 });

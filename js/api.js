@@ -1,7 +1,7 @@
 export let eventDetails;
 
 // put apikey in separate file and export variable as 'apikey'
-import apikey from apikey.js;
+import { apikey } from '/js/apikey.js';
 
 export async function getTickets(type, key) {
     let events;
@@ -18,14 +18,17 @@ export async function getTickets(type, key) {
 }
 
 function APIfuncCheck(type, key) {
-    const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apikey}`;
-    const params = `&sort=date,asc&countryCode=US&startDateTime=${getDate()}`;
+    const url = `https://app.ticketmaster.com/discovery/v2/events?apikey=${apikey}`;
+    const params = `&startDateTime=${getDate()}&size=16&sort=date,asc&countryCode=US`;
+
+    console.log(url+params);
 
     //check if search query or from genre search
     if (type === 'evnt'){
         return `${url}&keyword=${key}${params}`;
     } else {
-        return `${url}&classificationName=${key}${params}`;
+        console.log(key);
+        return `${url}${params}&genreId=${key}`;
     }
 }
 
@@ -44,10 +47,11 @@ function getDate() {
         //convert each Date value to 2 digits, ie 1 -> 01
         types.forEach(function(e) {
             //convert types var to JS date code
-            const unit = eval(`nowDate.get${e}()`);
+            let unit = eval(`nowDate.get${e}()`);
 
-            //check if date code is 2 digits
-            (unit <= 9) ? typesVal.push(`0${unit}`) : typesVal.push(unit);
+            //(e === "Month") ? unit += 1 : null;
+            
+            (unit < 10) ? typesVal.push(`0${unit}`) : typesVal.push(unit);
         });
 
         switch (type) {
