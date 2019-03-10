@@ -1,5 +1,8 @@
 export let eventDetails;
 
+// put apikey in separate file and export variable as 'apikey'
+import apikey from apikey.js;
+
 export async function getTickets(type, key) {
     let events;
 
@@ -15,9 +18,6 @@ export async function getTickets(type, key) {
 }
 
 function APIfuncCheck(type, key) {
-
-    // ------------USE YOUR API TICKETMASTER API, GET IT FREE------------------
-    const apikey = '';
     const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apikey}`;
     const params = `&sort=date,asc&countryCode=US&startDateTime=${getDate()}`;
 
