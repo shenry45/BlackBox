@@ -269,3 +269,6 @@ footer {
 .f-about::first-letter {
   font-family: "Permanent Marker", cursive;
   font-size: 30px; }
+
+.new {
+  width: 0; }
