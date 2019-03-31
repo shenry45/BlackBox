@@ -1,0 +1,332 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+p {
+  margin: 0;
+  font-family: @font-content;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  border: 1px solid #000;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+header {
+  width: 100vw;
+  max-width: 100%;
+  height: 92vh;
+  padding: 15%;
+  background-image: url('../img/search-background.jpg');
+  background-size: cover;    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  h1 {
+      font-size: 6.5em;
+      line-height: 45px;
+      background-color: #fff;
+      padding: 15px;
+      color: #000;
+      margin-bottom: 45px;
+      .transform(10deg, -5deg);
+  }
+  
+  h1:first-of-type {
+      margin-bottom: 0;
+      .transform(10deg, 0deg);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @font-head;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+input:focus {
+  &:extend(input);
+}
+
+#top {
+  height: 1px;
+  background:#000;
+  color:#000;
+}
+
+.begin {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+  
+  i {
+    z-index: 1;
+    background: linear-gradient(to bottom right, @brand-color1, @brand-color2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 50px;
+    color: transparent;
+  }
+}
+
+i {    
+  &.search-btn {
+    background-image: linear-gradient(to bottom right, #ccb2ff, #c9b5ff, #022394);
+    border-radius: 30px;
+    height: 100%;
+    width: 100px;
+    align-content: center;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+
+    &:active {
+      background-image: linear-gradient(to bottom right, #ae99d8, #c4b1f7, #011b73);
+      color: #3e3e3e;
+    }
+
+    &:before {
+      margin-top: 5px;
+      font-size: 30px;
+    }
+  }
+}
+
+.search-cont {
+  border-radius: 30px;
+  border: 2px solid #cacaca;
+}
+
+.search-bar {
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 30px;
+  height: 45px;
+  padding-right: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  input {
+    height: 100%;
+    width: 100%;
+    font-style: italic;
+    font-size: 30px;
+    font-family: @font-content;
+    margin-left: 10px;
+  }
+}
+
+.results {
+  padding: 50px 15%;
+  max-width: 100%;
+  background-image: url('../img/cork-board.jpg');
+  background-repeat: repeat;
+}
+
+.events {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.resStuff {
+  height: fit-content;
+  border-bottom: 7px solid #656565;
+  background: #f7f7f7;
+  margin-bottom: 30px;
+
+  img:hover {
+    opacity: 0.7;
+    filter: opacity(0.7);
+  }
+}
+
+.result {
+  width: 310px;
+  padding: 0 12px 2px 12px;
+  -ms-transform: inherit;
+  -webkit-transform: inherit;
+  -o-transform: inherit;
+  transform: skewY(-2deg); 
+
+  img {
+    width: 100%;
+    height: auto;
+    border: 5px solid #f7f7f7;
+  }
+}
+
+.result-cont {
+  box-shadow: 1px 1px 5px #000;
+}
+    
+.resDetails {
+  padding: 0 28px 10px 28px;
+
+  h3 {
+    color: #000;
+    font-size: 25px;
+    font-family: @font-content;
+  }
+}
+
+.ticket-price {
+  color: #000;
+  font-size: 25px;
+  font-family: @font-head;
+  line-height: 26px;
+}
+
+.resLoc {
+  text-align: right;
+  font-size: 18px;
+  font-family: @font-content;
+  margin-bottom: 25px; 
+}
+
+.resFoot {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: nowrap;
+}
+
+.resAvail {
+  width: 107px;
+  height: 100%;
+  padding: 5px;
+  color: #fff;
+  background: linear-gradient(to bottom right, #8400e1, #bf00cb);
+  vertical-align: middle;
+  text-align: center;
+  box-shadow: 1px 1px 10px #df6aff;
+  .transform(-10deg, 0deg);
+
+  &.inactive {
+    display: none;
+  }
+}
+
+.start {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.eDate {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+.genres {
+  height: fit-content;
+  background-color: #ececec;
+  padding: 50px 10%;
+
+  h2 {
+    text-align: center;
+    line-height: 35px;
+  }
+}
+
+.genList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  p {
+    cursor: pointer;
+    font-size: 22px;
+    padding: 5px 30px;
+    margin: 10px 5px;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 3px;
+  }
+}
+
+#tagline {
+  padding: 30px 15%;
+  text-align: center;
+  background: @text-color;
+  color: #fff;
+  font-family: @font-content;
+  font-style: italic;
+  font-size: 24px;
+  
+  p {
+    color: #fff;
+  }
+}
+
+#theBoard {
+  width: 100%;
+  max-width: 600px;
+  height: 100px;
+  text-align: center;
+  background-image: url('../img/torn-paper.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.subhead {
+  text-align: center;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  padding: 35px 10%;
+}
+
+.f-about::first-letter {
+  font-family: @font-head;
+  font-size: 30px;
+}
+
+.new {
+  width: 0;
+}

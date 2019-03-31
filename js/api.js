@@ -9,8 +9,6 @@ export async function getTickets(type, input) {
     await fetch(APIfuncCheck(type, input))
         .then(response => response.json())
         .then(data => {
-
-            console.log(data);
                 // save event details
                 events, eventDetails = data._embedded.events;
 
@@ -26,13 +24,13 @@ const APIfuncCheck = (type, input) => {
 
     //check if search query or from genre search
     if (type === 'evnt') {
-        return `${proxy}${url}&keyword=${input}${params}` 
+        return `${proxy}${url}&keyword=${input}${params}`;
     }  else {
-        return `${url}${params}&genreId=${input}`;
+        return `${proxy}${url}${params}&genreId=${input}`;
     }
 }
 
-function getDate() {
+const getDate = () => {
     let nowDate = new Date();
 
     //get date in UTC format
@@ -40,42 +38,42 @@ function getDate() {
 
     // Check if value is lower than 10, returns formatted numbers
     function checkNumb(type) {
-        const types = ['Month', 'Date', 'Hours', 'Minutes', 'Seconds'];
-        //stores date and time values.
-        const typesVal = [];
+
+        const dateTypes = ['Month', 'Date', 'Hours', 'Minutes', 'Seconds'];
+        //stores current date and time values
+        const dateTypesEval = [];
 
         //convert each Date value to 2 digits, ie 1 -> 01
-        types.forEach(e => {
-            //convert types var to JS date code
-            let unit = eval(`nowDate.get${e}()`);
+        dateTypes.forEach(e => {
+            //convert dateTypes var to JS date code
+            let getDateVal = eval(`nowDate.get${e}()`);
 
-            if (unit < 10 && e === 'Month') {
+            if (getDateVal < 10 && e === 'Month') {
                 // add 1 to the month number because count starts at 1 instead of 0
-                typesVal.push(`0${unit + 1}`)
-            } else if (unit < 10) {
+                dateTypesEval.push(`0${getDateVal + 1}`);
+            } else if (getDateVal < 10) {
                 // add 0 before number
-                typesVal.push(`0${unit}`)
+                dateTypesEval.push(`0${getDateVal}`);
             } else {
-                typesVal.push(unit)
+                dateTypesEval.push(getDateVal);
             }
         });
 
         switch (type) {
             case 'month':
-                console.log(typesVal[0]);
-                return typesVal[0];
+                return dateTypesEval[0];
                 break;
             case 'date':
-                return typesVal[1];
+                return dateTypesEval[1];
                 break;
             case 'hrs':
-                return typesVal[2];
+                return dateTypesEval[2];
                 break;
             case 'min':
-                return typesVal[3];
+                return dateTypesEval[3];
                 break;
             case 'sec':
-                return typesVal[4];
+                return dateTypesEval[4];
                 break;
             default:
                 return '01';
@@ -83,6 +81,5 @@ function getDate() {
         };
     }
    
-    console.log(selDate)
     return selDate;
 }

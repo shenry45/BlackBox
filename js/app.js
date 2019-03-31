@@ -25,20 +25,18 @@ async function fetchTix(e, genre){
     document.querySelector('#resultList').scrollIntoView(true);
 };
 
-function searchOrGenre(e, genre){
-    console.log(e);
+const searchOrGenre = (e, genre) => {
 
     if (e === 'evnt') {
         return search.value.toLowerCase();
     } else {
-        console.log(genre);
         return genre;
         // return genre.toLowerCase();
     } 
 }
 
 // display event details
-function showEvents(){
+const showEvents = () => {
     let html, index, venueDet;
 
     document.querySelector(DOMel.results).innerHTML = '';
@@ -46,7 +44,7 @@ function showEvents(){
     // loops through event JSON
     for (let i = 0; i < eventDetails.length; i++) {
         index = eventDetails[i];
-        //console.log(index);
+
         venueDet = index._embedded.venues[0];
         
         // check if in US or outside US and display location
@@ -89,7 +87,6 @@ function showEvents(){
 
         // insert new event
         document.querySelector(DOMel.results).insertAdjacentHTML('beforeend', html);
-        //console.log(checkSale(index));
 
         // randomize rotation of event in UI
         document.querySelector(DOMel.results).lastElementChild.style.transform = `rotate(${randImgRotation()}deg)`;
@@ -187,8 +184,6 @@ search.addEventListener('keydown', (e) => {
 
 document.querySelectorAll('.genList').forEach(el => {
     el.addEventListener('click', (ev) => {
-        //console.log(ev.target.innerText);
-        console.log(ev);
         fetchTix('genre', ev.target.dataset.genre);
     });
 });
