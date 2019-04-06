@@ -126,6 +126,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+html,
+body {
+  font-size: 62.5%;
+}
 * {
   box-sizing: border-box;
 }
@@ -140,7 +144,7 @@ body {
   padding: 0;
 }
 h2 {
-  font-size: 30px;
+  font-size: 3rem;
 }
 p {
   margin: 0;
@@ -157,10 +161,8 @@ hr {
   margin-bottom: 30px;
 }
 header {
-  width: 100vw;
-  max-width: 100%;
-  height: 92vh;
-  padding: 15%;
+  width: 100%;
+  padding: 50px 0;
   background-image: url('../img/search-background.jpg');
   background-size: cover;
   display: flex;
@@ -170,7 +172,7 @@ header {
   overflow: hidden;
 }
 header h1 {
-  font-size: 6.5em;
+  font-size: 6.5rem;
   line-height: 45px;
   background-color: #fff;
   padding: 15px;
@@ -221,16 +223,17 @@ input:focus {
   background: linear-gradient(to bottom right, #5c51ff, #aa4fff);
   -webkit-background-clip: text;
   background-clip: text;
-  font-size: 50px;
+  font-size: 5rem;
   color: transparent;
 }
 i.search-btn {
-  background-image: linear-gradient(to bottom right, #ccb2ff, #c9b5ff, #022394);
-  border-radius: 30px;
+  background: #0472c2;
+  border-right: 2px solid #cacaca;
   height: 100%;
-  width: 100px;
-  align-content: center;
+  width: 70px;
   display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   justify-content: space-around;
   cursor: pointer;
 }
@@ -239,17 +242,16 @@ i.search-btn:active {
   color: #3e3e3e;
 }
 i.search-btn:before {
-  margin-top: 5px;
-  font-size: 30px;
+  font-size: 2.3rem;
+  color: #fff;
 }
 .search-cont {
-  border-radius: 30px;
+  width: 600px;
   border: 2px solid #cacaca;
 }
 .search-bar {
   z-index: 1;
   background-color: #fff;
-  border-radius: 30px;
   height: 45px;
   padding-right: 25px;
   display: flex;
@@ -260,7 +262,7 @@ i.search-btn:before {
   height: 100%;
   width: 100%;
   font-style: italic;
-  font-size: 30px;
+  font-size: 2.3rem;
   font-family: 'Roboto', 'Tahoma', sans-serif;
   margin-left: 10px;
 }
@@ -308,7 +310,7 @@ i.search-btn:before {
 }
 .resDetails h3 {
   color: #000;
-  font-size: 25px;
+  font-size: 2.5rem;
   font-family: 'Roboto', 'Tahoma', sans-serif;
 }
 .ticket-price {
@@ -319,7 +321,7 @@ i.search-btn:before {
 }
 .resLoc {
   text-align: right;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-family: 'Roboto', 'Tahoma', sans-serif;
   margin-bottom: 25px;
 }
@@ -347,7 +349,7 @@ i.search-btn:before {
   display: none;
 }
 .start {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 100;
 }
 .eDate {
@@ -374,7 +376,7 @@ i.search-btn:before {
 }
 .genList p {
   cursor: pointer;
-  font-size: 22px;
+  font-size: 2.2rem;
   padding: 5px 30px;
   margin: 10px 5px;
   background-color: #000000;
@@ -392,6 +394,7 @@ i.search-btn:before {
 }
 #tagline p {
   color: #fff;
+  font-size: 2rem;
 }
 #theBoard {
   width: 100%;
