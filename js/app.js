@@ -89,7 +89,7 @@ const showEvents = () => {
         document.querySelector(DOMel.results).insertAdjacentHTML('beforeend', html);
 
         // randomize rotation of event in UI
-        document.querySelector(DOMel.results).lastElementChild.style.transform = `rotate(${randImgRotation()}deg)`;
+        // document.querySelector(DOMel.results).lastElementChild.style.transform = `rotate(${randImgRotation()}deg)`;
 
         // remove 'on sale' tag in UI if no price shown
         if (!index.priceRanges || index.dates.status.code !== 'onsale') {
@@ -103,15 +103,15 @@ const showEvents = () => {
         //return date;
     }
 
-    function randImgRotation() {
-        const rotate = Math.ceil(Math.random() * 5);
+    // function randImgRotation() {
+    //     const rotate = Math.ceil(Math.random() * 5);
         
-        if (rotate % 2) {
-            return rotate;
-        } else {
-            return '-' + rotate;
-        } 
-    }
+    //     if (rotate % 2) {
+    //         return rotate;
+    //     } else {
+    //         return '-' + rotate;
+    //     } 
+    // }
 
     function filterLocation() {
         if (!venueDet.state && venueDet.country.name) {
