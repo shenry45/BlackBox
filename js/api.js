@@ -4,17 +4,20 @@ export let eventDetails;
 import { apikey } from '/js/apikey.js';
 
 export async function getTickets(type, input) {
-    let events;
+    let eventList;
     //
     await fetch(APIfuncCheck(type, input))
         .then(response => response.json())
         .then(data => {
-                // save event details
-                events, eventDetails = data._embedded.events;
-
-                return events;
-            })
-        .catch(error => console.log(error));
+                if (data.page.totalElements > 0) {
+                    // save event details
+                    eventList, eventDetails = data._embedded.events;
+    
+                    return eventList;
+                }
+            }
+        )
+        .catch(error => console.log(error))
 }
 
 const APIfuncCheck = (type, input) => {
