@@ -21,15 +21,17 @@ export async function getTickets(type, input) {
 }
 
 const APIfuncCheck = (type, input) => {
-    const proxy = 'https://cors-anywhere.herokuapp.com/';
+    // const proxy = 'https://cors-anywhere.herokuapp.com/';
     const url = `http://app.ticketmaster.com/discovery/v2/events?apikey=${apikey}`;
     const params = `&startDateTime=${getDate()}&size=16&sort=date,asc&countryCode=US`;
 
     //check if search query or from genre search
     if (type === 'evnt') {
-        return `${proxy}${url}&keyword=${input}${params}`;
+        // return `${proxy}${url}&keyword=${input}${params}`;
+        return `${url}&keyword=${input}${params}`;
     }  else {
-        return `${proxy}${url}${params}&genreId=${input}`;
+        // return `${proxy}${url}${params}&genreId=${input}`;
+        return `${url}${params}&genreId=${input}`;
     }
 }
 

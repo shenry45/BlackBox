@@ -52,13 +52,13 @@ const showEvents = () => {
             if (!venueDet.state) {
                 html = `<div class="result">
                     <div class="result-cont">
-                        <p class="eDate">${dateParse(index.dates.start.localDate)}</p>
                         <div class="resStuff">
-                        <a href="${index.url}" target="_blank"><img src="${checkImg()}" alt="${index.name}"/></a>
+                            <a href="${index.url}" target="_blank" class="event-img"></a>
                             <div class="resDetails">
                                 <h3><a href="${index.url}" target="_blank"><u>${index.name}</u></a></h3>
                                 <h5 class="resLoc">${filterLocation()}</h5>
                                 <div class="resFoot">
+                                    <p class="event-date">${dateParse(index.dates.start.localDate)}</p>
                                     <p class="ticket-price">${checkPrice()}</p>
                                     <p class="resAvail id-${i}">${checkSale(index)}</p>
                                 </div>
@@ -66,36 +66,45 @@ const showEvents = () => {
                         </div>
                     </div>
                 </div>`;
+                // <p class="eDate">${dateParse(index.dates.start.localDate)}</p>
+                // <img src="${checkImg()}" alt="${index.name}"/>
                 // ${venueDet.city.name}, ${venueDet.country.name}
             } else {
                 html = `<div class="result">
                     <div class="result-cont">
-                        <p class="eDate">${dateParse(index.dates.start.localDate)}</p>
                         <div class="resStuff">
-                        <a href="${index.url}" target="_blank"><img src="${checkImg()}" alt="${index.name}"/></a>
+                            <a href="${index.url}" target="_blank" class="event-img"></a>
                             <div class="resDetails">
                                 <h3><a href="${index.url}" target="_blank"><u>${index.name}</u></a></h3>
                                 <h5 class="resLoc">${venueDet.city.name}, ${venueDet.state.stateCode}</h5>
                                 <div class="resFoot">
+                                    <p>${dateParse(index.dates.start.localDate)}</p>
                                     <p class="ticket-price">${checkPrice()}</p>
-                                    <p class="resAvail id-${i}">${checkSale(index)}</p>
+                                    <p class="resAvail id-${i}">${checkSale()}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>`;
+                // <img src="${checkImg()}" alt="${index.name}"/>
             }
 
             // insert new event
             document.querySelector(DOMel.results).insertAdjacentHTML('beforeend', html);
-
+            
             // randomize rotation of event in UI
             // document.querySelector(DOMel.results).lastElementChild.style.transform = `rotate(${randImgRotation()}deg)`;
-
+            
             // remove 'on sale' tag in UI if no price shown
-            if (!index.priceRanges || index.dates.status.code !== 'onsale') {
+            if (index.dates.status.code !== 'onsale') {
+                // !index.priceRanges || 
                 document.querySelector(`.id-${i}`).classList.add('inactive');
             }
+
+            const eventImg = document.querySelector('.events').lastChild;
+            eventImg.querySelector('.event-img').style.backgroundImage = `url(${checkImg()})`;
+
+
         };
     }
     
@@ -130,7 +139,7 @@ const showEvents = () => {
         const imageInd = index.images[0].url;
 ;
         if (imageInd) {
-            return imageInd
+            return imageInd;
         } else {
             return img;
         }
@@ -167,11 +176,15 @@ const showEvents = () => {
     }
 
     function checkSale() {
-        (index.dates.status.code === 'onsale') ? 'ON SAL<u>E</u>' : '';
+        if (index.dates.status.code === 'onsale') {
+            return 'ON SAL<u>E</u>'
+        } else {
+            return '';
+        } 
     }
 }
 
-document.querySelector(DOMel.searchBtn).addEventListener('click', () => {
+document.querySelector(DOMel.searchBtn).addEventListener('mousedown', () => {
     // if search character count is 3+ on click
     if (search.value.length >= 3) {
         fetchTix('evnt');
