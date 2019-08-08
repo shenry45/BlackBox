@@ -4,7 +4,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 const ToTop = () => {
   return (
-    <div class="begin">
+    <div className="begin">
       <a href="#top">
           <FontAwesomeIcon icon={faArrowUp} />
       </a>
