@@ -6,7 +6,7 @@ const ToTop = () => {
   return (
     <div className="begin">
       <a href="#top">
-          <FontAwesomeIcon icon={faArrowUp} />
+          <FontAwesomeIcon icon={faArrowUp} className="top-btn" />
       </a>
     </div>
   )

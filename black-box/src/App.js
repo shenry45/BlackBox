@@ -5,21 +5,19 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Index from './pages/Index';
 import ToTop from './components/ToTop';
-import EventsPage from './pages/EventsPage';
 import NoPage from './pages/NoPage';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <ToTop />
       <Header />
       <Switch>
         <Route exact path="/" component={Index} />
-        <Route path="/events" component={EventsPage} />
         <Route component={NoPage} />
       </Switch>
       <Footer />
-    </div>
+    </>
   );
 }
 

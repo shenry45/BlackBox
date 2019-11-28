@@ -2,15 +2,17 @@ import React from 'react';
 
 import Hero from '../components/Index/Hero';
 import Tagline from '../components/Tagline';
+import Genres from '../components/Genres';
+import Results from '../components/Results';
 
 const Index = () => {
   return (
     <div>
       <section>
-        <h1>Index Page</h1>
-        <p>Your home of stuff</p>
         <Hero />
+        <Genres />
         <Tagline />
+        <Results />
       </section>
     </div>
   )

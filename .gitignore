@@ -1,2 +1,4 @@
-js/apikey.js
 .vscode
+/node_modules
+.env
+.txt
