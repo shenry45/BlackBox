@@ -186,7 +186,7 @@ class Results extends React.Component {
             this.state.results.map(el => {
               return this.resultFormat(el);
             }) :
-            null
+            <p>No results found :(</p>
         }
       </div>
     )

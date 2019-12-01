@@ -33,7 +33,6 @@ class Genres extends React.Component {
               <div className="genList">
                   {
                     this.genreList.map(gen => {
-                      console.log(this);
                       return <p
                         key={gen.id}
                         className={gen.id}

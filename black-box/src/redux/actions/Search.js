@@ -10,6 +10,7 @@ export const getConcerts = (searchType, input) => dispatch => {
     axios
     .get(APIfuncCheck(searchType, input))
     .then(res => {
+        console.log(res.data);
         dispatch({ type: SEARCH_PENDING, payload: false });
         dispatch({ type: SEARCH_SUCCESS, payload: res.data._embedded.events });
     })
