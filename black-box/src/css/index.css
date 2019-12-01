@@ -294,6 +294,8 @@ header h1:first-of-type {
   margin-left: 10px;
 }
 .results {
+  display: flex;
+  flex-flow: row wrap;
   padding: 50px 15%;
   max-width: 100%;
   background-image: url('../img/cork-board.jpg');
@@ -331,13 +333,15 @@ header h1:first-of-type {
   width: 100%;
   height: auto;
   border: 5px solid #f7f7f7;
+  box-sizing: content-box;
 }
 .result-cont {
   box-shadow: 1px 1px 5px #000;
 }
 .resDetails {
-  width: 50%;
+  width: 100%;
   padding: 10px 28px;
+  box-sizing: border-box;
 }
 .resDetails h3 {
   color: #000;

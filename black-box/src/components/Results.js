@@ -14,15 +14,7 @@ class Results extends React.Component {
   }
 
   resultFormat(el) {
-    let html, venueDet;
-
-    const DOMel = {
-      search: '.search',
-      searchBtn: '.search-btn',
-      genres: '.genres',
-      results: '.events',
-      sale: '.resAvail'
-    };
+    let venueDet;
 
     const months = [
       'January','February','March','April','May','June','July',
@@ -33,13 +25,13 @@ class Results extends React.Component {
     
     // check if in US or outside US and display location
     if (!venueDet.state) {
-        return <div class="result">
+        return <div class="result" key={el.id}>
             <div class="result-cont">
                 <p class="eDate">{dateParse(el.dates.start.localDate)}</p>
                 <div class="resStuff">
-                <a href={el.url} target="_blank"><img src={checkImg()} alt={el.name} /></a>
+                <a href={el.url} target="_blank" rel="noopener noreferrer"><img src={checkImg()} alt={el.name} /></a>
                     <div class="resDetails">
-                        <h3><a href={el.url} target="_blank"><u>{el.name}</u></a></h3>
+                        <h3><a href={el.url} target="_blank" rel="noopener noreferrer"><u>{el.name}</u></a></h3>
                         <h5 class="resLoc">{filterLocation()}</h5>
                         <div class="resFoot">
                             <p class="ticket-price">{checkPrice()}</p>
@@ -51,18 +43,18 @@ class Results extends React.Component {
         </div>;
         // ${venueDet.city.name}, ${venueDet.country.name}
     } else {
-        return <div class="result">
-          <div class="result-cont">
-            <p class="eDate">{dateParse(el.dates.start.localDate)}</p>
-            <div class="resStuff">
-              <a href={el.url} target="_blank">
+        return <div className="result" key={el.id}>
+          <div className="result-cont">
+            <p className="eDate">{dateParse(el.dates.start.localDate)}</p>
+            <div className="resStuff">
+              <a href={el.url} target="_blank" rel="noopener noreferrer">
                 <img src={checkImg()} alt={el.name} />
               </a>
-              <div class="resDetails">
-                  <h3><a href={el.url} target="_blank"><u>{el.name}</u></a></h3>
-                  <h5 class="resLoc">{venueDet.city.name}, {venueDet.state.stateCode}</h5>
-                  <div class="resFoot">
-                    <p class="ticket-price">{checkPrice()}</p>
+              <div className="resDetails">
+                  <h3><a href={el.url} target="_blank" rel="noopener noreferrer"><u>{el.name}</u></a></h3>
+                  <h5 className="resLoc">{venueDet.city.name}, {venueDet.state.stateCode}</h5>
+                  <div className="resFoot">
+                    <p className="ticket-price">{checkPrice()}</p>
                     {onSale(el)}
                   </div>
                 </div>
@@ -95,14 +87,15 @@ class Results extends React.Component {
     // document.querySelector(DOMel.results).lastElementChild.style.transform = `rotate(${randImgRotation()}deg)`;
 
     // remove 'on sale' tag in UI if no price shown
-    if (!el.priceRanges || el.dates.status.code !== 'onsale') {
-        // document.querySelector(`.id-${i}`).classList.add('inactive');
+    // if (!el.priceRanges || el.dates.status.code !== 'onsale') {
+    //     // document.querySelector(`.id-${i}`).classList.add('inactive');
         
-        return null;
-    }
+    //     return null;
+    // }
+
     function onSale(el) {
       if (!el.priceRanges || el.dates.status.code !== 'onsale') {
-        return <p class="resAvail">{checkSale()}</p>
+        return <p className="resAvail">{checkSale()}</p>
       } else {
         return null;
       }
@@ -111,18 +104,18 @@ class Results extends React.Component {
 
     function dateParse(date) {
       const fullDate = date.split('-');
-      return `${months[parseInt(fullDate[1])]} ${fullDate[2]}`;
-      //return date;
+
+      return `${months[parseInt(fullDate[1])-1]} ${fullDate[2]}`;
     }
     
-    function randImgRotation() {
-        const rotate = Math.ceil(Math.random() * 5);
-        if (rotate % 2) {
-            return rotate;
-        } else {
-            return '-' + rotate;
-        }
-    }
+    // function randImgRotation() {
+    //     const rotate = Math.ceil(Math.random() * 5);
+    //     if (rotate % 2) {
+    //         return rotate;
+    //     } else {
+    //         return '-' + rotate;
+    //     }
+    // }
     
     function filterLocation() {
         if (!venueDet.state && venueDet.country.name) {
@@ -146,14 +139,12 @@ class Results extends React.Component {
     }
     
     function checkPrice() {
-      console.log(el.priceRanges);
-
         const price = 'N/A';
     
         if (!el.priceRanges || el.priceRanges.length < 1){
             return price;
         } else {
-            return <p><span class="start">Starts at </span>{getCurrSymbol()}{el.priceRanges[0].min}</p>;
+            return <><span className="start">Starts at </span>{getCurrSymbol()}{el.priceRanges[0].min}</>;
         }
     }
     
@@ -179,7 +170,7 @@ class Results extends React.Component {
     
     function checkSale() {
         if (el.dates.status.code === 'onsale') {
-            return 'ON SAL<u>E</u>';
+            return 'ON SALE';
         } else {
             return '';
         }
