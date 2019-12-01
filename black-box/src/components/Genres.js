@@ -32,13 +32,14 @@ class Genres extends React.Component {
               <p className="subhead">Pick from a genre of music to see what the latest events are.</p>
               <div className="genList">
                   {
-                    this.genreList.map( function(gen){
+                    this.genreList.map(gen => {
+                      console.log(this);
                       return <p
                         key={gen.id}
-                        className={gen.id}>{gen.name}</p>
+                        className={gen.id}
+                        onClick={this.fetchResults}>{gen.name}</p>
                     })
                   }
-                  <p key="KnvZfZ7vAeA" className="KnvZfZ7vAeA" onClick={this.fetchResults}></p>
               </div>
           </div>
       </section>
