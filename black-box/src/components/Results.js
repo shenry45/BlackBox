@@ -14,24 +14,28 @@ class Results extends React.Component {
   }
 
   resultFormat(el) {
-    let venueDet;
-
     const months = [
       'January','February','March','April','May','June','July',
       'August','September','October','November','December'
     ];
+    const venueDet = el._embedded.venues[0];
+    const eImage = {
+      backgroundImage: "url('" + checkImg() + "')"
+    }
 
-    venueDet = el._embedded.venues[0];
-    
+    console.log(eImage);
+
     // check if in US or outside US and display location
     if (!venueDet.state) {
         return <div class="result" key={el.id}>
             <div class="result-cont">
                 <p class="eDate">{dateParse(el.dates.start.localDate)}</p>
                 <div class="resStuff">
-                <a href={el.url} target="_blank" rel="noopener noreferrer"><img src={checkImg()} alt={el.name} /></a>
+                <a href={el.url} target="_blank" rel="noopener noreferrer" className="event-img" style={eImage}>
+                  {/* <img src={checkImg()} alt={el.name} /> */}
+                  </a>
                     <div class="resDetails">
-                        <h3><a href={el.url} target="_blank" rel="noopener noreferrer"><u>{el.name}</u></a></h3>
+                        <h3><a href={el.url} target="_blank" rel="noopener noreferrer"><u>{checkTitle()}</u></a></h3>
                         <h5 class="resLoc">{filterLocation()}</h5>
                         <div class="resFoot">
                             <p class="ticket-price">{checkPrice()}</p>
@@ -41,17 +45,16 @@ class Results extends React.Component {
                 </div>
             </div>
         </div>;
-        // ${venueDet.city.name}, ${venueDet.country.name}
     } else {
         return <div className="result" key={el.id}>
           <div className="result-cont">
             <p className="eDate">{dateParse(el.dates.start.localDate)}</p>
             <div className="resStuff">
-              <a href={el.url} target="_blank" rel="noopener noreferrer">
-                <img src={checkImg()} alt={el.name} />
-              </a>
+            <a href={el.url} target="_blank" rel="noopener noreferrer" className="event-img" style={eImage}>
+                  {/* <img src={checkImg()} alt={el.name} /> */}
+                  </a>
               <div className="resDetails">
-                  <h3><a href={el.url} target="_blank" rel="noopener noreferrer"><u>{el.name}</u></a></h3>
+                  <h3><a href={el.url} target="_blank" rel="noopener noreferrer"><u>{checkTitle()}</u></a></h3>
                   <h5 className="resLoc">{venueDet.city.name}, {venueDet.state.stateCode}</h5>
                   <div className="resFoot">
                     <p className="ticket-price">{checkPrice()}</p>
@@ -61,27 +64,7 @@ class Results extends React.Component {
               </div>
             </div>
           </div>;
-        // html = <div class="result">
-        //     <div class="result-cont">
-        //         <p class="eDate">{dateParse(el.dates.start.localDate)}</p>
-        //         <div class="resStuff">
-        //         <a href={el.url} target="_blank"><img src={checkImg()} alt={el.name} /></a>
-        //             <div class="resDetails">
-        //                 <h3><a href={el.url} target="_blank"><u>{el.name}</u></a></h3>
-        //                 <h5 class="resLoc">{venueDet.city.name}, {venueDet.state.stateCode}</h5>
-        //                 <div class="resFoot">
-        //                     <p class="ticket-price">{checkPrice()}</p>
-        //                     <p class="resAvail">{checkSale()}</p>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>;
     }
-
-    // insert new event
-    // document.querySelector(DOMel.results).insertAdjacentHTML('beforeend', html);
-    //console.log(checkSale(index));
 
     // randomize rotation of event in UI
     // document.querySelector(DOMel.results).lastElementChild.style.transform = `rotate(${randImgRotation()}deg)`;
@@ -128,23 +111,23 @@ class Results extends React.Component {
     }
     
     function checkImg() {
-        const img = document.querySelector('header').backgroundImage;
+        // const img = document.querySelector('header').backgroundImage;
         const imageInd = el.images[0].url;
     
         if (imageInd){
             return imageInd;
         } else {
-            return img;
+            return './img/concert.jpg';
         }
     }
     
     function checkPrice() {
         const price = 'N/A';
     
-        if (!el.priceRanges || el.priceRanges.length < 1){
+        if (!el.priceRanges || !el.priceRanges[0].min ){
             return price;
         } else {
-            return <><span className="start">Starts at </span>{getCurrSymbol()}{el.priceRanges[0].min}</>;
+            return <><span className="start">Starts at </span>{getCurrSymbol()}{el.priceRanges[0].min.toFixed(2)}</>;
         }
     }
     
@@ -175,8 +158,15 @@ class Results extends React.Component {
             return '';
         }
     }
-  }
 
+    function checkTitle() {
+      if (el.name.length > 71) {
+        return el.name.slice(0,71) + '...';
+      } else {
+        return el.name;
+      }
+    }
+  }
   
   render() {
     return (

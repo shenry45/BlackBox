@@ -75,29 +75,24 @@ input:focus {
   }
 }
 
-i {    
-  &.search-btn {
-    // background-image: linear-gradient(to bottom right, #ccb2ff, #c9b5ff, #022394);
-    background: #0472c2;
-    // border-radius: 30px 0 0 30px;
-    border-right: 2px solid #cacaca;
-    height: 100%;
-    width: 70px;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-around;
-    cursor: pointer;
-
-    &:active {
-      opacity: 0.7;
-      color: #3e3e3e;
-    }
-
-    &:before {
-      font-size: 2.3rem;
-      color: #fff;
-    }
+.search-btn {
+  background: #0472c2;
+  height: 100%;
+  width: 70px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  
+  &:active {
+    opacity: 0.7;
+    color: #3e3e3e;
+  }
+  
+  &:before {
+    font-size: 2.3rem;
+    color: #fff;
   }
 }
 
@@ -162,7 +157,7 @@ header {
 
 
 .search-cont {
-  width: 50%;
+  width: 35%;
   // border-radius: 30px;
   border: 2px solid #cacaca;
   margin: 0 auto;
@@ -172,17 +167,20 @@ header {
   z-index: 1;
   background-color: #fff;
   height: 45px;
-  padding-right: 25px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+
+  form {
+    width: 100%;
+  }
   
   input {
     height: 100%;
     width: 100%;
     font-size: 2.3rem;
     font-family: @font-content;
-    margin-left: 10px;
+    padding-left: 10px;
   }
 }
 
@@ -208,18 +206,18 @@ header {
   flex-flow: row nowrap;
   background: #f7f7f7;
   margin-bottom: 30px;
+  height: 200px;
 
-  img:hover {
-    opacity: 0.7;
-    filter: opacity(0.7);
-  }
+  // img:hover {
+  //   opacity: 0.7;
+  //   filter: opacity(0.7);
+  // }
 
   a.event-img {
-    width: 50%;
-    height: 186px;
-    background-size: cover;
+    width: 100%;
     background-position: center;
-    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
   }
 }
 
@@ -252,7 +250,7 @@ header {
     a {
       font-weight: 700;
       text-decoration: none;
-      font-size: 2.25rem;
+      font-size: 1.75rem;
     }
   }
 }

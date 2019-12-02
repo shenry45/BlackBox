@@ -18,8 +18,14 @@ class SearchBar extends React.Component {
   
   handlerSearch = e => {
     e.preventDefault();
-    
-    this.props.getConcerts('evnt', this.state.search);
+
+    if (this.state.search === '' || !this.state.search.search('<')) {
+      this.setState({
+        search: ''
+      })
+    } else {
+      this.props.getConcerts('evnt', this.state.search);
+    }
   }
 
   render() {
@@ -29,9 +35,11 @@ class SearchBar extends React.Component {
           <div className="search-cont">
             <div className="search-bar">
               <span className="search-btn">
-                <FontAwesomeIcon icon={faSearch} className="search-btn" onClick={this.handlerSearch}/>
+                <FontAwesomeIcon icon={faSearch} size="4x" className="search-btn" onClick={this.handlerSearch}/>
               </span>
-              <input className="search" placeholder="Search an artist or event..." maxLength="30" onChange={this.handlerChangeInput} value={this.state.search} onSubmit={this.handlerSearch}/>
+              <form onSubmit={this.handlerSearch}>
+                <input className="search" placeholder="Search an artist or event..." maxLength="50" onChange={this.handlerChangeInput} value={this.state.search} onSubmit={this.handlerSearch}/>
+              </form>
             </div>
           </div>
         </div>

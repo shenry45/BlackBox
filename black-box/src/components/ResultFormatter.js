@@ -134,13 +134,13 @@ export default function ResultFormatter(el) {
   }
 
   function checkPrice() {
-      const price = 'N/A';
-
-      // if (!el.priceRanges){
-          return price;
-      // } else {
-          // return '<span class="start">Starts at</span><br>' + getCurrSymbol() + el.priceRanges[0].min.toFixed(2);
-      // }
+      console.log(el.priceRanges[0].min);
+      
+      if (!el.priceRanges || el.priceRanges[0].min === undefined){
+          return 'N/A';
+      } else {
+          return '<span class="start">Starts at</span><br>' + getCurrSymbol() + el.priceRanges[0].min.toFixed(2);
+      }
   }
 
   function getCurrSymbol() {
