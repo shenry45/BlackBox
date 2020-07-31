@@ -18,9 +18,9 @@ class NavLinks extends React.Component {
       <nav>
         <p><a href="/" onClick={this.handlerClick}>Home</a></p>
         <p><a href="/about" onClick={this.handlerClick}>About</a></p>
-        <p><a href="/contact" onClick={this.handlerClick}>Contact</a></p>
-        <p><a href="/events" onClick={this.handlerClick}>Events</a></p>
-        <p><a href="/login" onClick={this.handlerClick}>Login</a></p>
+        {/* <p><a href="/contact" onClick={this.handlerClick}>Contact</a></p> */}
+        {/* <p><a href="/events" onClick={this.handlerClick}>Events</a></p> */}
+        {/* <p><a href="/login" onClick={this.handlerClick}>Login</a></p> */}
       </nav>
     )
   }

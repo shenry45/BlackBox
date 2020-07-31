@@ -206,35 +206,17 @@ input:focus {
   font-size: 5rem;
   color: transparent;
 }
-.search-btn {
-  background: #0472c2;
-  height: 100%;
-  width: 70px;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-around;
-  cursor: pointer;
-}
-.search-btn:active {
-  opacity: 0.7;
-  color: #3e3e3e;
-}
-.search-btn:before {
-  font-size: 2.3rem;
-  color: #fff;
-}
 .top-btn {
   width: 30px;
   height: auto;
 }
 header {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  padding: 20px 30px;
-  background-image: url('../img/concert.jpg');
-  background-size: cover;
-  background-position: center;
+  padding: 20px 10%;
   overflow: hidden;
+  z-index: 1;
 }
 header .formatter {
   display: flex;
@@ -243,11 +225,10 @@ header .formatter {
   align-items: center;
 }
 header .top-nav {
-  padding: 0 0 50px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
 }
 header .top-nav nav {
   display: flex;
@@ -261,6 +242,9 @@ header .top-nav nav a {
 }
 header .top-nav nav a:hover {
   text-decoration: underline;
+}
+header .logo {
+  width: 150px;
 }
 header h1 {
   font-size: 4rem;
@@ -280,15 +264,38 @@ header h1:first-of-type {
   -o-transform: skewX(10deg) rotate(0deg);
   transform: skewX(10deg) rotate(0deg);
 }
+
+.search-btn {
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(to top right, transparent, #ffb100);
+  background-color: #fff200;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding: 5px 25px;
+  transition: 0.25s;
+}
+.search-btn:hover {
+  background-color: #ffb700;
+}
+.search-btn:active {
+  opacity: 0.7;
+  color: #3e3e3e;
+}
+.search-btn:before {
+  font-size: 2.3rem;
+  color: #fff;
+}
 .search-cont {
-  width: 35%;
-  border: 2px solid #cacaca;
+  width: 25%;
+  border-radius: 25px;
   margin: 0 auto;
 }
 .search-bar {
   z-index: 1;
-  background-color: #fff;
-  height: 45px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -301,8 +308,14 @@ header h1:first-of-type {
   width: 100%;
   font-size: 2.3rem;
   font-family: 'Roboto', 'Tahoma', sans-serif;
-  padding-left: 10px;
+  padding: 5px 25px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
+.search-bar input::placeholder {color: #595959;}
+.search-bar input:-ms-input-placeholder {color: #595959;}
+.search-bar input::-ms-input-placeholder {color: #595959;}
+
 .results {
   display: flex;
   flex-flow: row wrap;
@@ -474,9 +487,28 @@ footer {
   width: 0;
 }
 section.hero {
-  padding: 30px;
-  background: #f5f5f5;
+  position: relative;
+  margin-top: -120px;
+  width: 100vw;
+  height: 75vh;
+  background: url(/static/media/concert.c93a3e6f.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
+section.hero h1 {
+  font-size: 9.0rem;
+  color: #2e2e2e;
+  margin-bottom: 1.0rem;
+}
+section.hero p {
+  color: #2e2e2e;
+  font-size: 2.0rem;
+}
+
 @media (min-width: 767px) {
   .formatter {
     margin: 0 auto;

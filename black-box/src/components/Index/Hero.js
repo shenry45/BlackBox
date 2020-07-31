@@ -1,13 +1,10 @@
 import React from 'react';
 
-import SearchBar from '../Searchbar';
-
 const Hero = () => {
   return (
     <section className="hero">
-      <div>
-        <SearchBar />
-      </div>
+      <h1>Enjoy great music</h1>
+      <p>#1 choice for the best concert venues available</p>
     </section>
   )
 }

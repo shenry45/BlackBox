@@ -7,14 +7,12 @@ import Results from '../components/Results';
 
 const Index = () => {
   return (
-    <div>
-      <section>
-        <Hero />
-        <Genres />
-        <Tagline />
-        <Results />
-      </section>
-    </div>
+    <>
+      <Hero />
+      <Genres />
+      <Tagline />
+      <Results />
+    </>
   )
 }
 
