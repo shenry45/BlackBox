@@ -1,0 +1,516 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+html,
+body {
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  font-size: 3rem;
+}
+p {
+  margin: 0;
+  font-family: 'Roboto', 'Tahoma', sans-serif;
+  color: #000;
+  font-size: 1.6rem;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+hr {
+  border: 1px solid #000;
+  width: 100%;
+  margin-bottom: 30px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Permanent Marker', cursive;
+  margin: 0;
+  padding: 0;
+}
+input,
+input:focus {
+  border: none;
+  outline: none;
+}
+#top {
+  height: 1px;
+  background: #000;
+  color: #000;
+}
+.begin {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+}
+.begin i {
+  z-index: 1;
+  background: linear-gradient(to bottom right, #5c51ff, #aa4fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 5rem;
+  color: transparent;
+}
+.top-btn {
+  width: 30px;
+  height: auto;
+}
+header {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 20px 10%;
+  overflow: hidden;
+  z-index: 1;
+}
+header .formatter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header .top-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .top-nav nav {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+header .top-nav nav a {
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 0 10px;
+}
+header .top-nav nav a:hover {
+  text-decoration: underline;
+}
+header .logo {
+  width: 150px;
+}
+header h1 {
+  font-size: 4rem;
+  background-color: #fff;
+  padding: 5px 15px;
+  color: #000;
+  margin-bottom: 45px;
+  -ms-transform: skewX(10deg) rotate(-5deg);
+  -webkit-transform: skewX(10deg) rotate(-5deg);
+  -o-transform: skewX(10deg) rotate(-5deg);
+  transform: skewX(10deg) rotate(-5deg);
+}
+header h1:first-of-type {
+  margin-bottom: 0;
+  -ms-transform: skewX(10deg) rotate(0deg);
+  -webkit-transform: skewX(10deg) rotate(0deg);
+  -o-transform: skewX(10deg) rotate(0deg);
+  transform: skewX(10deg) rotate(0deg);
+}
+
+.search-btn {
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(to top right, transparent, #ffb100);
+  background-color: #fff200;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding: 5px 25px;
+  transition: 0.25s;
+}
+.search-btn:hover {
+  background-color: #ffb700;
+}
+.search-btn:active {
+  opacity: 0.7;
+  color: #3e3e3e;
+}
+.search-btn:before {
+  font-size: 2.3rem;
+  color: #fff;
+}
+.search-cont {
+  width: 25%;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+.search-bar {
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.search-bar form {
+  width: 100%;
+}
+.search-bar input {
+  height: 100%;
+  width: 100%;
+  font-size: 2.3rem;
+  font-family: 'Roboto', 'Tahoma', sans-serif;
+  padding: 5px 25px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.search-bar input::placeholder {color: #595959;}
+.search-bar input:-ms-input-placeholder {color: #595959;}
+.search-bar input::-ms-input-placeholder {color: #595959;}
+
+.results {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 50px 15%;
+  max-width: 100%;
+  background-image: url('../img/cork-board.jpg');
+  background-repeat: repeat;
+}
+.events {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.resStuff {
+  display: flex;
+  flex-flow: row nowrap;
+  background: #f7f7f7;
+  margin-bottom: 30px;
+  height: 200px;
+}
+.resStuff a.event-img {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+.result {
+  width: 50%;
+  padding: 0 12px 2px 12px;
+}
+.result img {
+  width: 100%;
+  height: auto;
+  border: 5px solid #f7f7f7;
+  box-sizing: content-box;
+}
+.result-cont {
+  box-shadow: 1px 1px 5px #000;
+}
+.resDetails {
+  width: 100%;
+  padding: 10px 28px;
+  box-sizing: border-box;
+}
+.resDetails h3 {
+  color: #000;
+  font-size: 2.5rem;
+  font-family: 'Roboto', 'Tahoma', sans-serif;
+}
+.resDetails h3 a {
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.75rem;
+}
+.ticket-price {
+  color: #000;
+  font-size: 25px;
+  font-family: 'Permanent Marker', cursive;
+  line-height: 26px;
+}
+.resLoc {
+  text-align: left;
+  font-size: 1.8rem;
+  font-family: 'Roboto', 'Tahoma', sans-serif;
+  padding: 10px 0;
+}
+.resLoc .event-date {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.resFoot {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: nowrap;
+}
+.resAvail {
+  width: 107px;
+  height: 100%;
+  padding: 5px;
+  color: #fff;
+  background: linear-gradient(to bottom right, #8400e1, #bf00cb);
+  vertical-align: middle;
+  text-align: center;
+  box-shadow: 1px 1px 10px #df6aff;
+  -ms-transform: skewX(-10deg) rotate(0deg);
+  -webkit-transform: skewX(-10deg) rotate(0deg);
+  -o-transform: skewX(-10deg) rotate(0deg);
+  transform: skewX(-10deg) rotate(0deg);
+}
+.resAvail.inactive {
+  display: none;
+}
+.start {
+  font-size: 1.8rem;
+  font-weight: 100;
+}
+.eDate {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+.genres {
+  height: fit-content;
+  background-color: #ececec;
+  padding: 50px 10%;
+}
+.genres h2 {
+  text-align: center;
+  line-height: 35px;
+}
+.genList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.genList p {
+  cursor: pointer;
+  font-size: 2.2rem;
+  padding: 5px 30px;
+  margin: 10px 5px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 3px;
+}
+#tagline {
+  padding: 30px 15%;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  font-family: 'Roboto', 'Tahoma', sans-serif;
+  font-style: italic;
+  font-size: 24px;
+}
+#tagline p {
+  color: #fff;
+  font-size: 2rem;
+}
+#theBoard {
+  width: 100%;
+  max-width: 600px;
+  height: 100px;
+  text-align: center;
+  background-image: url('../img/torn-paper.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+}
+.subhead {
+  text-align: center;
+  padding: 0;
+  margin-bottom: 30px;
+}
+footer {
+  display: flex;
+  width: 100%;
+  padding: 35px 10%;
+}
+.f-about::first-letter {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 30px;
+}
+.new {
+  width: 0;
+}
+section.hero {
+  position: relative;
+  margin-top: -120px;
+  width: 100vw;
+  height: 75vh;
+  background: url(/static/media/concert.c93a3e6f.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+section.hero h1 {
+  font-size: 9.0rem;
+  color: #2e2e2e;
+  margin-bottom: 1.0rem;
+}
+section.hero p {
+  color: #2e2e2e;
+  font-size: 2.0rem;
+}
+
+@media (min-width: 767px) {
+  .formatter {
+    margin: 0 auto;
+  }
+}

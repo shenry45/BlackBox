@@ -1,0 +1,1 @@
+Need to move results to Index Page props... Searchbar, Results, and Genres need to be able to clear current results
