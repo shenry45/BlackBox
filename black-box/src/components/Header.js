@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import SearchBar from './Searchbar';
 import NavLinks from './Navigation/NavLinks';
@@ -8,8 +9,9 @@ const Header = () => {
   return (
     <header>
       <div className="top-nav">
-        {/* <h1>BLACK BOX</h1> */}
-        <img src={LogoBlack} className="logo" alt="Black Box logo" />
+        <Link to="/">
+          <img src={LogoBlack} className="logo" alt="Black Box logo" />
+        </Link>
         <SearchBar />
         <nav>
           <NavLinks />

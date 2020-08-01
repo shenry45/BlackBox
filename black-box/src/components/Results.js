@@ -77,7 +77,7 @@ class Results extends React.Component {
     // }
 
     function onSale(el) {
-      if (!el.priceRanges || el.dates.status.code !== 'onsale') {
+      if (el.dates.status.code === 'onsale') {
         return <p className="resAvail">{checkSale()}</p>
       } else {
         return null;

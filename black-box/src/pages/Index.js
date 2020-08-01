@@ -9,8 +9,8 @@ const Index = () => {
   return (
     <>
       <Hero />
-      <Genres />
       <Tagline />
+      <Genres />
       <Results />
     </>
   )
