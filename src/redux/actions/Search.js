@@ -24,7 +24,7 @@ export const getConcerts = (searchType, input) => dispatch => {
 
 const APIfuncCheck = (type, input) => {
     // const proxy = 'https://cors-anywhere.herokuapp.com/';
-    const url = `http://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.REACT_APP_APIKey}`;
+    const url = `https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.REACT_APP_APIKey}`;
     const params = `&startDateTime=${getDate()}&size=16&sort=date,asc&countryCode=US`;
 
     //check if search query or from genre search
